@@ -8,6 +8,18 @@ This site has been created by the command below:
 npm create vite@latest svelted -- --template svelte
 ```
 
+Run the development server with the following commands:
+
+```sh
+npm install
+```
+
+then
+
+```sh
+npm run dev
+```
+
 Happy Hackin'!
 
 [svelte]: https://svelte.dev
