@@ -37,6 +37,18 @@
   height: 50px;
 }
 
+.header-title {
+  font-weight: bold;
+}
+
+.header-links {
+  display: flex;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 .product {
   margin: 0 auto;
   background-color: #fff;
