@@ -10,4 +10,18 @@
   </nav>
 </header>
 <article class="product">
+  <div class="product-main">
+    <div class="image-container">
+      <img src="https://github.com/svelte-book/sample-app/raw/main/static/svelte-book-1.png" alt="The Cover of Svelte Guide"
+      />
+    </div>
+  </div>
 </article>
+
+<style>
+.image-container {
+  width: 100%;
+  max-width: 400px;
+  overflow: hidden;
+}
+</style>
