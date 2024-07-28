@@ -19,6 +19,24 @@
 </article>
 
 <style>
+:global(body) {
+  margin: 0;
+  background-color: #eee;
+  padding: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 0 15px;
+  width: 100%;
+  max-width: 800px;
+  height: 50px;
+}
+
 .product {
   margin: 0 auto;
   background-color: #fff;
