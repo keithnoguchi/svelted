@@ -19,9 +19,27 @@
 </article>
 
 <style>
+.product {
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 15px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.product-main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
 .image-container {
   width: 100%;
   max-width: 400px;
   overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
 }
 </style>
