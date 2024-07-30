@@ -9,11 +9,24 @@
     </ul>
   </nav>
 </header>
+
 <article class="product">
   <div class="product-main">
     <div class="image-container">
-      <img src="https://github.com/svelte-book/sample-app/raw/main/static/svelte-book-1.png" alt="The Cover of Svelte Guide"
+      <img
+        src="https://github.com/svelte-book/sample-app/raw/main/static/svelte-book-1.png"
+	alt="The Cover of Svelte Guide"
       />
+    </div>
+    <div>
+      <h2>Svelte Guide</h2>
+      <dl>
+        <dt>Prince</dt>
+	<dd>$35</dd>
+      </dl>
+      <div>
+        <button>Add to cart</button>
+      </div>
     </div>
   </div>
 </article>
