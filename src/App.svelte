@@ -8,6 +8,13 @@
       </li>
     </ul>
   </nav>
+  <script>
+    let cart = [];
+
+    function addToCart(productId) {
+      cart = [...cart, productId];
+    }
+  </script>
 </header>
 
 <article class="product">
@@ -25,7 +32,9 @@
 	<dd>$35</dd>
       </dl>
       <div>
-        <button>Add to cart</button>
+        <button on:click={() => addToCart('svelte-book')}>
+	  Add to cart
+	</button>
       </div>
     </div>
   </div>
