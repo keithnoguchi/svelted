@@ -38,6 +38,21 @@
       </div>
     </div>
   </div>
+
+  <footer>
+    <h3>Related Products</h3>
+    <ul>
+      <li>
+        <a href="/products/react-book">React Book</a> - $35
+      </li>
+      <li>
+        <a href="/products/vue-book">Vue Book</a> - $35
+      </li>
+      <li>
+        <a href="/products/angular-book">Angular Book</a> - $35
+      </li>
+    </ul>
+  </footer>
 </article>
 
 <style>
