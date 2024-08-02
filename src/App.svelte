@@ -1,3 +1,28 @@
+<script>
+  let relatedProducts = [
+    {
+      id: 'react-book',
+      name: 'React Book',
+      prince: 35,
+    },
+    {
+      id: 'vue-book',
+      name: 'Vue Book',
+      prince: 35,
+    },
+    {
+      id: 'angular-book',
+      name: 'Angular Book',
+      prince: 35,
+    },
+  ];
+  let cart = [];
+
+  function addToCart(productId) {
+      cart = [...cart, productId];
+  }
+</script>
+
 <header class="header">
   <a class="header-title" href="/">Svelted EC</a>
   <nav>
@@ -8,13 +33,6 @@
       </li>
     </ul>
   </nav>
-  <script>
-    let cart = [];
-
-    function addToCart(productId) {
-      cart = [...cart, productId];
-    }
-  </script>
 </header>
 
 <article class="product">
@@ -42,15 +60,11 @@
   <footer>
     <h3>Related Products</h3>
     <ul>
+    {#each relatedProducts as product}
       <li>
-        <a href="/products/react-book">React Book</a> - $35
+        <a href="/products/{product.id}">{product.name}</a> - ${product.prince}
       </li>
-      <li>
-        <a href="/products/vue-book">Vue Book</a> - $35
-      </li>
-      <li>
-        <a href="/products/angular-book">Angular Book</a> - $35
-      </li>
+    {/each}
     </ul>
   </footer>
 </article>
