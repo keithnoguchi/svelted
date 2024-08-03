@@ -1,5 +1,5 @@
 <script>
-  let relatedProducts = [
+  const relatedProducts = [
     {
       id: 'react-book',
       name: 'React Book',
