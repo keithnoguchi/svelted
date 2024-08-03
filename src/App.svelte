@@ -1,4 +1,9 @@
 <script>
+  let product = {
+    id: 'svelte-book',
+    name: 'Svelte Book',
+    price: 35,
+  };
   const relatedProducts = [
     {
       id: 'react-book',
@@ -19,7 +24,7 @@
   let cart = [];
 
   function addToCart(productId) {
-      cart = [...cart, productId];
+    cart = [...cart, productId];
   }
 </script>
 
@@ -40,19 +45,21 @@
     <div class="image-container">
       <img
         src="https://github.com/svelte-book/sample-app/raw/main/static/svelte-book-1.png"
-	alt="The Cover of Svelte Guide"
+        alt="The Cover of {product.name}."
       />
     </div>
     <div>
-      <h2>Svelte Guide</h2>
+      <h2>{product.name}</h2>
       <dl>
-        <dt>Prince</dt>
-	<dd>$35</dd>
+        <dt>price</dt>
+        <dd>${product.price}</dd>
       </dl>
       <div>
-        <button on:click={() => addToCart('svelte-book')}>
-	  Add to cart
-	</button>
+        {#if !cart.includes(product.id)}
+          <button on:click={() => addToCart(product.id)}>
+            Add to cart
+          </button>
+        {/if}
       </div>
     </div>
   </div>
