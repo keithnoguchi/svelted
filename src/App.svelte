@@ -1,16 +1,12 @@
 <script>
   let name = 'Svelted';
-  let value = 'only characters and white space';
+  let src =
+    'https://github.com/sveltejs/branding/raw/master/svelte-logo.png';
+  let alt = "Svelte's logo";
 </script>
 
 <p class="text">Hello, {name}!</p>
-<div>{(/^[A-Za-z ]+$/).test(value) ? 'OK' : 'NG'}</div>
-
-<img
-  src="https://github.com/sveltejs/branding/raw/master/svelte-logo.png"
-  alt="Svelte's Logo"
-  class="logo"
->
+<img {src} {alt} class="logo" >
 
 <div>It's {new Date()} now.</div>
 
