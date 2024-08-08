@@ -11,6 +11,8 @@
   class="logo"
 >
 
+<div>It's {new Date()} now.</div>
+
 <style>
   .logo {
     height: 6em;
