@@ -1,10 +1,8 @@
 <script>
-  import svelteLogo from './assets/svelte.svg'
-  import viteLogo from '/vite.svg'
-  import Counter from './lib/Counter.svelte'
+  let name = 'Svelted';
 </script>
 
-<p class="text">Hello, Svelte!</p>
+<p class="text">Hello, {name}!</p>
 <img
   src="https://github.com/sveltejs/branding/raw/master/svelte-logo.png"
   alt="Svelte's Logo"
