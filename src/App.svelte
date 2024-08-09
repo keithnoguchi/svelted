@@ -1,19 +1,10 @@
 <script>
-  let name = 'Svelted';
-  let attrs = {
-    src: 'https://github.com/sveltejs/branding/raw/master/svelte-logo.png',
-    alt: "Svelte's logo",
-  };
-  let disabled = true;
+  let timeout = 3000;
+  let promise = new Promise((resolve, reject) => {
+    setTimeout(() => resolve(`${timeout} seconds passed.`), timeout);
+  });
 </script>
 
-<p class="text">
-  Hello, {name}!
-  It's {new Date()} now.
-</p>
-<img {...attrs} class="logo" >
-<button {disabled}>Click it!</button>
-
-<style>
-  .logo {height: 6em;}
-</style>
+{#await promise then message}
+  <p>{message}</p>
+{/await}
