@@ -1,10 +1,17 @@
 <script>
-  let timeout = 3000;
-  let promise = new Promise((resolve, reject) => {
-    setTimeout(() => resolve(`${timeout} seconds passed.`), timeout);
-  });
+  import UserProfile from './UserProfile.svelte';
+  import Button from './Button.svelte';
+  import PropsTest from './PropsTest.svelte';
+
+  let keith = {
+    name: 'Keith Noguchi',
+    id: 'keithnoguchi',
+    bio: 'C, Rust, and Svelte!',
+  };
+  let props = {label: "You can't click it.", disabled: true};
 </script>
 
-{#await promise then message}
-  <p>{message}</p>
-{/await}
+<UserProfile user={keith} />
+<Button {...props} />
+
+<PropsTest foo="test" bar={42} />
