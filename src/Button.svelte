@@ -3,4 +3,6 @@
   export let disabled = false;
 </script>
 
-<button {disabled}>{label}</button>
+<button {disabled}>
+  {label}
+</button>

@@ -1,17 +1,21 @@
 <script>
-  import UserProfile from './UserProfile.svelte';
+  import Box from './Box.svelte';
   import Button from './Button.svelte';
-  import PropsTest from './PropsTest.svelte';
-
-  let keith = {
-    name: 'Keith Noguchi',
-    id: 'keithnoguchi',
-    bio: 'C, Rust, and Svelte!',
-  };
-  let props = {label: "You can't click it.", disabled: true};
+  let label = 'Send it!';
+  let disabled = true;
+  let condition = false;
 </script>
 
-<UserProfile user={keith} />
-<Button {...props} />
+<Box>
+  <h3>About Svelte</h3>
+  <p>
+    <a href="https://svelte.dev">Svelte</a> is a UI framework
+    to create cybernetically enhanced web apps.
+  </p>
+  <Button {label} {disabled} />
 
-<PropsTest foo="test" bar={42} />
+  {#if condition}
+    <div>...</div>
+  {/if}
+</Box>
+<Box />
