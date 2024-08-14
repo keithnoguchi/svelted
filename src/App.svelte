@@ -1,7 +1,12 @@
 <script>
-  import Count from './Count.svelte';
+  function handleSubmit(e) {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    alert(`"${formData.get('q')}" is the search keyword.`);
+  }
 </script>
 
-<Count>
-  <span slot="count" let:value={v}>{v}</span>
-</Count>
+<form on:submit={handleSubmit}>
+  <input type="search" name="q">
+  <button type="submit">Search</button>
+</form>
