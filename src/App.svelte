@@ -1,12 +1,13 @@
 <script>
-  function handleSubmit(e) {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    alert(`"${formData.get('q')}" is the search keyword.`);
+  function handleClick() {
+    alert('You clicked the div element.');
+  }
+
+  function handleButtonClick() {
+    alert('You clicked the button element.');
   }
 </script>
 
-<form on:submit={handleSubmit}>
-  <input type="search" name="q">
-  <button type="submit">Search</button>
-</form>
+<div on:click|capture|stopPropagation={handleClick}>
+  <button on:click={handleButtonClick}>Click it!</button>
+</div>
