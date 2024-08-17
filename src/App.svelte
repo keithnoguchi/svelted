@@ -1,13 +1,9 @@
 <script>
-  function handleClick() {
-    alert('You clicked the div element.');
-  }
+  import HelloButton from './HelloButton.svelte';
 
-  function handleButtonClick() {
-    alert('You clicked the button element.');
+  function handleHello(event) {
+    alert(event.detail);
   }
 </script>
 
-<div on:click|capture|stopPropagation={handleClick}>
-  <button on:click={handleButtonClick}>Click it!</button>
-</div>
+<HelloButton on:hello={handleHello} />
