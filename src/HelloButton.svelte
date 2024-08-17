@@ -8,4 +8,4 @@
   }
 </script>
 
-<button on:click={handleClick}>Click it!</button>
+<button on:click|once={handleClick}>Click it!</button>
