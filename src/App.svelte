@@ -1,9 +1,12 @@
 <script>
-  import HelloButton from './HelloButton.svelte';
+  import CustomButton from './CustomButton.svelte';
 
-  function handleHello(event) {
-    alert(event.detail);
+  function handler(e) {
+    console.log(e.constructor.name);
+    alert("You did it!");
   }
 </script>
 
-<HelloButton on:hello={handleHello} />
+<CustomButton on:click|once={handler}>
+  Click here!
+</CustomButton>
