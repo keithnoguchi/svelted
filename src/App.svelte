@@ -1,13 +1,12 @@
 <script>
-  function handleClick() {
-    alert('You clicked the div element.');
-  }
+  import CustomButton from './CustomButton.svelte';
 
-  function handleButtonClick() {
-    alert('You clicked the button element.');
+  function handler(e) {
+    console.log(e.constructor.name);
+    alert("You did it!");
   }
 </script>
 
-<div on:click|capture|stopPropagation={handleClick}>
-  <button on:click={handleButtonClick}>Click it!</button>
-</div>
+<CustomButton on:click|once={handler}>
+  Click here!
+</CustomButton>
