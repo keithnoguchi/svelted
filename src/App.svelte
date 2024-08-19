@@ -1,13 +1,13 @@
 <script>
-  function handleClick() {
-    alert('You clicked the div element.');
-  }
+  import { onMount } from 'svelte';
 
-  function handleButtonClick() {
-    alert('You clicked the button element.');
-  }
+  onMount(() => {
+    const canvas = document.getElementById('someId');
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#ddd';
+    ctx.fillRect(0, 0, 100, 100);
+    ctx.fillRect(100, 100, 200, 200);
+  });
 </script>
 
-<div on:click|capture|stopPropagation={handleClick}>
-  <button on:click={handleButtonClick}>Click it!</button>
-</div>
+<canvas id="someId" width="200" hgitht="200" />
