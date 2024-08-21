@@ -1,16 +1,52 @@
 <script>
-  import { onDestroy } from 'svelte';
+  import { beforeUpdate, afterUpdate } from 'svelte';
 
-  let now = new Date();
+  let prevHeight;
 
-  const timer = setInterval(() => {
-    now = new Date();
-  }, 1000);
+  beforeUpdate(() => {
+    const element = document.getElementById('timeline');
 
-  onDestroy(() => {
-    console.log(`Let's cleanup {timer}.`);
-    clearInterval(timer);
+    // Make sure the element exists.
+    if (element) {
+      prevHeight = element.scrollHeight;
+    } else {
+      console.log('no timeline element in the doc yet.');
+    }
   });
+
+  afterUpdate(() => {
+    if (prevHeight) {
+      const element = document.getElementById('timeline');
+      const diff = element.scrollHeight - prevHeight;
+      element.scrollTop += diff;
+    }
+  });
+
+  let contents = Array.from({length: 100}, (_, i) => `Post #${i}`);
+
+  function handleClick() {
+    contents = [
+      ...Array.from({length: 100}, (_, i) => `Post #${i - 100}`),
+      ...contents,
+    ];
+  }
 </script>
 
-<div>It's {now.toLocaleString()} now.</div>
+<div id="timeline">
+  {#each contents as post}
+    <div>{post}</div>
+  {/each}
+</div>
+
+<button on:click={handleClick}>
+  Updat timeline
+</button>
+
+<style>
+  #timeline {
+    width: 300px;
+    height: 300px;
+    border: 1px solid gray;
+    overflow: auto;
+  }
+</style>
