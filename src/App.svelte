@@ -1,52 +1,27 @@
 <script>
-  import { beforeUpdate, afterUpdate } from 'svelte';
+  import { tick } from 'svelte';
 
-  let prevHeight;
+  let clicked = false;
 
-  beforeUpdate(() => {
-    const element = document.getElementById('timeline');
+  async function handler() {
+    clicked = true;
 
-    // Make sure the element exists.
-    if (element) {
-      prevHeight = element.scrollHeight;
-    } else {
-      console.log('no timeline element in the doc yet.');
-    }
-  });
-
-  afterUpdate(() => {
-    if (prevHeight) {
-      const element = document.getElementById('timeline');
-      const diff = element.scrollHeight - prevHeight;
-      element.scrollTop += diff;
-    }
-  });
-
-  let contents = Array.from({length: 100}, (_, i) => `Post #${i}`);
-
-  function handleClick() {
-    contents = [
-      ...Array.from({length: 100}, (_, i) => `Post #${i - 100}`),
-      ...contents,
-    ];
+    await tick();
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#ddd';
+    ctx.fillRect(0, 0, 100, 200);
+    ctx.fillRect(100, 100, 200, 200);
   }
 </script>
 
-<div id="timeline">
-  {#each contents as post}
-    <div>{post}</div>
-  {/each}
+<div>
+  <button on:click={handler}>Display</button>
 </div>
 
-<button on:click={handleClick}>
-  Updat timeline
-</button>
+{#if clicked}
+  <canvas id="canvas" width="200" height="200" />
+{/if}
 
 <style>
-  #timeline {
-    width: 300px;
-    height: 300px;
-    border: 1px solid gray;
-    overflow: auto;
-  }
 </style>
