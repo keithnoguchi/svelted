@@ -1,19 +1,25 @@
 <script>
-  let x = 1;
+  let n = 1;
+  let stars;
 
-  $: area = x * x;
-  $: volume = x * x * x;
+  $: console.log(`n id noe ${n}.`);
+  $: {
+    const newStars = [];
+    for (let i = 0; i < n; i++) {
+      newStars.push(i % 2 === 0 ? '*' : '');
+    }
+    stars = newStars
+  }
 </script>
 
 <div>
-  Length:
-  <button on:click={() => (x -= 1)} disabled={x <= 1}>
+  {#each stars as star}{star}{/each}
+</div>
+<div>
+  <button on:click={() => (n -= 1)} disabled={n <= 1}>
     -
   </button>
-  {x}m
-  <button on:click={() => (x += 1)}>
+  <button on:click={() => (n += 1)}>
     +
   </button>
 </div>
-<div>Area: {area}m<sup>2</sup></div>
-<div>Volume: {volume}m<sup>3</sup></div>
