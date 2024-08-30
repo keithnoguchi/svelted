@@ -1,19 +1,14 @@
 <script>
   let n = 1;
-  let stars;
 
-  $: console.log(`n id noe ${n}.`);
-  $: {
-    const newStars = [];
-    for (let i = 0; i < n; i++) {
-      newStars.push(i % 2 === 0 ? '*' : '');
-    }
-    stars = newStars
+  $: if (n > 10) {
+    alert('Too big number.  Set it less than or equal to 10.');
+    n = 10;
   }
 </script>
 
 <div>
-  {#each stars as star}{star}{/each}
+  Number: {n}
 </div>
 <div>
   <button on:click={() => (n -= 1)} disabled={n <= 1}>
